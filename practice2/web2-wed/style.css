@@ -451,6 +451,18 @@ box-shadow: 1px 1px 5px, blue;
     -webkit-line-clamp: 6; /* 要幾行 */
 
 }
+
+@media (min-width:821px){}
+/* 平板 */
+@media (max-width:820px){
+    #news .item:last-child{
+        display: none;
+    }
+}
+/* 手機 */
+@media (max-width:640px){}
+
+
 #service {
     background-color: var(--bg-color-2);
 }
@@ -499,6 +511,25 @@ box-shadow: 1px 1px 5px, blue;
 #video video{
     height: 65vh;
 }
+/* 桌機 */
+@media (min-width:821px){
+    #video video{
+        height: 65vh;
+    }
+}
+/* 平板 */
+@media (max-width:820px){
+    #video{
+        height: auto;
+        padding: 100px 0;
+    }
+    #video video{
+        height: 80%;
+    }
+}
+    
+/* 手機 */
+@media (max-width:640px){}
 
 
 #about {
@@ -686,3 +717,11 @@ footer {
     background-color: var(--bg-color-1);
     height: 100px;
 }
+
+/* RWD斷點 */
+/* 桌機 */
+@media (min-width:821px){}
+/* 平板 */
+@media (max-width:820px){}
+/* 手機 */
+@media (max-width:640px){}
