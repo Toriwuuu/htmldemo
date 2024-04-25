@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        #box1{ display:none; background-color: rgb(189, 255, 255);}
+        #box2{background-color: rgb(214, 189, 255);}
+        #box3{background-color: rgb(235, 222, 110);}
+        #box4{background-color: rgb(153, 231, 163);}
+    </style>
+
+</head>
+<body>
+    <button>click</button>
+
+    <div id="box1">fdin</div>
+    <div id="box2">fdout</div>
+    <div id="box3">fdtoggle</div>
+    <div id="box4">fdto</div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+
+        $(function(){
+            $("button").click(function(){
+                $("#box1").fadeIn(2000);
+                $("#box2").fadeOut('slow');
+                $("#box3").fadeToggle('fast');
+                $("#box4").fadeTo('', .3); /* 速度(預設.4秒), 透明度 */
+            }); /* 取得btn做click做fuction=> */
+        });
+
+    </script>
+</body>
+</html>

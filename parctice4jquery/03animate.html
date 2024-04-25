@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">click</button>
+    <button id="btn">click</button>
+            $(function(){
+            $("button").click(function(){
+                $("#box1").fadeIn(2000);
+                $("#box2").fadeOut('slow');
+                $("#box3").fadeToggle('fast');
+                $("#box4").fadeTo('', .3); /* 速度(預設.4秒), 透明度 */
+            }); /* 取得btn做click做fuction=> */
+        });
+
+</body>
+</html>

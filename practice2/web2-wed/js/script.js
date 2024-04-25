@@ -24,3 +24,8 @@ $(function () { /* document.ready */
 
     });
 });
+
+// smoove
+$('.smoove').smoove({
+    offset:'40%', /* 數字不用引號 百分比要 */
+});

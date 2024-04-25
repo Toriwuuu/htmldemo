@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0; padding: 0;
+        }
+        body{
+            overflow-x: hidden;
+        }
+        header{
+            height: 100vh;
+            background-color: aqua;
+
+            font-size: 3rem;
+            color: white;
+            text-align: center;
+            line-height: 100vh;
+        }
+        .row{
+            display: flex;
+        }
+        .smoove{
+            background-color: blueviolet;
+            flex: 1;
+            height: 40vh;
+            margin: 10px 5px;
+        }
+        footer{
+            height: 30vh;
+            background-color: aquamarine;
+            font-size: 3rem;
+            color: white;
+            text-align: center;
+            line-height: 30vh;
+        }
+    </style>
+    <title>jquery smoove</title>
+</head>
+
+<body>
+    <header>BANNER</header>
+    <main>
+        <section class="row">
+            <div class="smoove"></div>
+            <div class="smoove"></div>
+        </section>
+        <!-- 旋轉仔入 -->
+        <section class="row">
+            <div class="smoove" data-rotate="90deg" data-move-x="-500px"></div>
+            <div class="smoove" data-rotate="45deg" data-move-x="-200px" data-move-y="200px"></div>
+            <div class="smoove" data-move-x="500px" data-rotate="45deg"></div>
+        </section>
+        <!-- 左右仔入 -->
+        <section class="row">
+            <div class="smoove" data-move-x="-200px" data-move-y="200px"></div>
+            <div class="smoove" data-move-x="-100px" data-move-y="200px"></div>
+            <div class="smoove" data-move-x="100px" data-move-y="200px"></div>
+            <div class="smoove" data-move-x="200px" data-move-y="200px"></div>
+        </section>
+        <section class="row">
+            <div class="smoove" data-move-x="-150%" data-rotate-y="-50deg"></div>
+            <div class="smoove" data-move-x="-150%" data-rotate-y="-50deg"></div>
+        </section>
+        <!-- 透視翻轉 -->
+        <section class="row">
+            <div class="smoove smoove-z"></div>
+            <div class="smoove smoove-z"></div>
+            <div class="smoove smoove-z"></div>
+            <div class="smoove smoove-z"></div>
+            <div class="smoove smoove-z"></div>
+        </section>
+        <footer>123</footer>
+    </main>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
+    <script>
+        $('.smoove').smoove({
+            offset:'40%', /* 數字不用引號 百分比要 */
+        });
+        $('.smoove-z').smoove({
+            moveY: '100px',
+            rotateX : '90deg',
+            moveZ: '-500px',
+        });
+    </script>
+</body>
+
+</html>
