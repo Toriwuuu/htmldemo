@@ -1,0 +1,687 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+TC:wght@100..900&family=Whisper&display=swap');
+
+@font-face {
+    font-family: 'Pareidolia';
+    src: url(./webfonts/Pareidolia.ttf);
+    /* 盡量不要有空格 會誤判 */
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*eric/css/reset/end*/
+
+/* 共用區 */
+@font-face {
+    font-family: 'Pareidolia';
+    src: url(./webfonts/Pareidolia.ttf);
+    /* 盡量不要有空格 會誤判 */
+}
+
+
+
+/* 共用區 */
+* {
+    box-sizing: border-box;
+    /* 全域不累加邊框與內距 */
+}
+
+/* html,body {
+    
+    scroll-behavior: smooth;
+} */ /* 不可跟jq共存 */
+
+body {
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+        "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    color: #555;
+}
+
+/* 微軟noto sans前面不允許其他字體 所以可以不要放在body */
+img {
+    display: block;
+    width: 100%;
+    /*SVG預設W100%*/
+}
+
+a {
+    display: block;
+    color: #555;
+    text-decoration: none;
+    /*取消預設底線裝飾*/
+}
+
+.glassmorphism {
+    padding: 10px 10px 5px;
+    border: solid 1px(rgba(255, 255, 255, .5));
+    border-radius: 99px;
+    /* calc(infinity * 1px) */
+    /* background-color: rgba(255, 255, 255, .4); */
+    background-image: linear-gradient(70deg, to bottom right, rgba(255, 255, 255, .6), rgba(255, 255, 255, .7));
+    backdrop-filter: blur(10px);
+    /* 上面背景色b-color需要有透明度 這裡才吃的到模糊強度 */
+    /*     filter: drop-shadow(2px 2px 3px #000); */
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .4),
+        inset -1px -1px 1px rgba(255, 255, 255, .5);
+}
+
+#gotop{
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--lesser-color);
+    padding: 5px;
+    cursor: pointer; /* 屬標變成手 */
+}
+/* 變數區 */
+:root {
+    
+    --light: #e1e1e1;
+    --grey: #999;
+    --deep: #444;
+
+    --bg-color-1: #F2EDF0;
+    --bg-color-2: #E6ECE5;
+    --bg-color-3: #Ecf0f4;
+    --lesser-color: #bf9899;
+    --alpha-deep:  rgba(0, 0, 0, 0.4);
+    --alpha-red:  rgba(241, 190, 193, 0.2);
+    --alpha-red2:  rgba(241, 190, 153, 0.1);
+
+}
+
+.whisper-regular {
+    font-family: "Whisper", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.noto-sans {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* css不會有<>的語法 有出現的話要改掉 */
+/* 主要內容共用區 */
+section {
+    display: flex;
+    flex-direction: column;
+    /* 主軸垂直 */
+    justify-content: center;
+    /* 主軸垂直置中 */
+    align-items: center;
+    /* 副軸水平置中 */
+    height: 100vh;
+
+}
+
+.title {
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    padding: 15px;
+    /* 框跟內容的距離 */
+}
+
+.title h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+
+}
+
+
+.title h3 {
+
+    font-weight: 400;
+    font-style: italic;
+    padding-top: .5rem;
+
+}
+
+/* 頁首區topbar */
+.topbar
+
+/*只管h1 nav*/
+    {
+    position: fixed;
+    /* 預設寬高抓尺寸內容 */
+    width: 100%;
+    display: flex;
+    /* 預設主軸(水平) */
+    justify-content: space-between;
+    /* 主軸水平均分 */
+    /*主軸(水平)均分*/
+    align-items: center;
+    padding: 5px 10px;
+    z-index: 999;
+}
+
+.logo {
+    width: 60px;
+}
+
+.topbar nav {
+    display: flex;
+    flex-direction: column;
+    /* 主軸(垂直)排列 */
+    align-items: flex-end;
+    /* 副軸(水平)齊尾 */
+}
+
+.topbar ul {
+    display: flex;
+}
+
+.icon a {
+    width: 32px;
+    height: 32px;
+    margin: 5px;
+    /* magin不含背景，padding含背景 */
+    transition: .4s;
+}
+
+.icon-fb {
+    background-image: url(./images/icon-fb.svg);
+    /* 如果用png， 要加一個backround-size: 100% */
+}
+
+.icon-ig {
+    background-image: url(./images/icon-ig.svg);
+
+}
+
+.icon-line {
+    background-image: url(./images/icon-line.svg);
+}
+
+.icon-fb:hover {
+    background-image: url(./images/icon-fb-hover.svg);
+}
+
+.icon-ig:hover {
+    background-image: url(./images/icon-ig-hover.svg);
+}
+
+.icon-line:hover {
+    background-image: url(./images/icon-line-hover.svg);
+}
+
+.menu a {
+    margin: 0 10px;
+    padding-bottom: 5px;
+    border-bottom: solid 2px transparent;
+    /* 底線 */
+    transition: all ease 1s;
+    /* all ease是預設值 不寫也可以 */
+}
+
+.menu a:hover {
+    border-bottom: solid 2px #555;
+
+}
+
+/* ID */
+/* BANNER區 */
+#banner {
+    display: flex;
+    /* 控制下面h1主軸 */
+    justify-content: center;
+    /* 控制下面h1主軸 */
+    align-items: center;
+    /* 控制下面h1主軸 */
+
+    /* 抓視窗比例100% vh */
+    height: 100vh;
+    background-image: url(./images/banner_1.jpg);
+    background-size: cover;
+}
+
+
+#banner h1 {
+
+    /*     color: cornflowerblue; */
+    font-family: 'Pareidolia';
+    font-size: 4rem;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: bold;
+
+    /* 文字套用背景圖片(漸層) 文字填滿顏色透明，再進行剪裁*/
+    -webkit-background-clip: text;
+    /* 功能太新，用webkit確保chrome會用 */
+    background-clip: text;
+    /* 剪裁文字範圍 */
+    -webkit-text-fill-color: transparent;
+    /*     text-fill-color:transparent; */
+    background-image: linear-gradient(to bottom right, var(--lesser-color), red);
+    filter: drop-shadow();
+}
+
+
+.list-box{
+width: 80%;
+max-width: 1200px;
+display: flex;
+}
+
+.item{
+flex: 1px;
+margin: 15px;
+border-radius: 20px;
+overflow: hidden;
+box-shadow: 1px 1px 5px, blue;
+}
+
+.item h1{
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+}
+
+/* 最新消息區 */
+#news {
+    background-color: var(--bg-color-1);
+}
+
+
+#news figure{
+    height:33vh;
+    overflow: hidden;
+}
+
+#news img{
+    object-fit: cover; 
+    height: 100%;
+    
+}
+.content{
+    padding: 15px 20px 20px;
+}
+
+#news p {
+    line-height: 1.4;
+    text-align: justify;
+    /* 多行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6; /* 要幾行 */
+
+}
+#service {
+    background-color: var(--bg-color-2);
+}
+
+#service .item{
+    position: relative;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: flex-end;
+}
+#service a{
+    /* position: absolute;
+    bottom: 0;
+    width: 100%; */
+    width: 100%;
+    color: var(--light);
+    background-color: var(--deep);
+
+
+}
+#service p{
+    /* 單行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis; /* 文字超過以省略號代替 */
+    white-space: nowrap; /* 文字不換行 */
+
+}
+.svc-1{
+    background-image: url(images/pt_svc1.jpg);
+}
+.svc-2{
+    background-image: url(images/pt_svc2.jpg);
+}
+.svc-3{
+    background-image: url(images/pt_svc3.jpg);
+}
+.svc-4{
+    background-image: url(images/pt_svc4.jpg);
+}
+#video {
+    background-color: var(--bg-color-3);
+}
+#video video{
+    height: 65vh;
+}
+
+
+#about {
+    position: relative;
+    background-color: rgba(241,190,193,0.2);
+}
+#about video{
+    position: absolute;
+    z-index: -1;
+
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    filter:  opacity(20%) brightness(120%) saturate(150%);
+}
+#about .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--alpha-red2);
+    width: 65%;
+    height: 100vh;
+    padding: 50px 100px;
+
+}
+#about p {
+    overflow: auto;
+    padding-right: 15px;
+    height: 100%;
+}
+
+#about p::-webkit-scrollbar{
+    background-color: #d1b8ba;
+
+}
+
+
+#about p::-webkit-scrollbar-button{
+    background-color: #8f6b6d;
+    
+}
+
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: url(./images/bg_contact.jpg) center fixed;
+    background-size: cover;
+}
+
+#form-contact>* {
+    display: block;
+    width: 100%;
+}
+
+#form-contact label{
+    margin: 20px 0 5px;
+    font-size: .8rem;
+}
+
+#form-contact small {
+    margin-top: 10px;
+    font-size: .75rem;
+    text-align: center;
+}
+
+#form-contact label {
+    margin: 20px 0 5px;
+    font-size: .8rem;
+}
+
+#form-contact input,
+#form-contact textarea {
+    padding: 5px 8px;
+    border-radius: 10px;
+    color: #555;
+    border: 1px solid ;
+    border-radius: 5px;
+}
+
+#form-contact input:focus,
+#form-contact textarea:focus{
+    outline:2px solid ;
+    /* 修改有些瀏覽器噁的預設外框 */
+}
+
+#form-contact inpit::placeholder{
+    color:#555;
+    font-size: .75rem;
+}
+
+#form-contact {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* codepen btn */
+
+#form-contact button {
+    /* position: relative;
+    outline: none;
+    text-decoration: none; */
+    margin-top: 20px;
+    border-radius: calc(infinity * 1px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* text-transform: uppercase; */
+    height: 60px;
+    width: 210px;
+    /* opacity: 1; */
+    background-color: #ffffff;
+    border: 1px solid rgba blue;
+}
+
+#button span {
+    color: var(--lesser-color);
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: 10px;
+    padding-left: 10px;
+    /* 平衡字距空間  跟字距一樣*/
+}
+
+button:hover{
+    animation: rotate 0.7s ease-in-out;
+}
+button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+
+@keyframes storm {
+    0% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+    }
+
+    25% {
+        transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+
+    50% {
+        transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+
+    75% {
+        transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color-1);
+    height: 100px;
+}
