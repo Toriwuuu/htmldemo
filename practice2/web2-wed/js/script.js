@@ -1,4 +1,11 @@
-$(function () { /* document.ready */
+$( function () { /* document.ready */
+
+    // 漢堡按鈕
+    $('.hamburger').click(function () {
+        // 交換漢堡按鈕跟X
+        $(this).toggleClass('is-active');
+        $('.navigation').toggleClass('show');
+    });
 
     // 滑動到指定位子
     $('.menu a').click(function () {
@@ -23,16 +30,16 @@ $(function () { /* document.ready */
         } else { $('#gotop').stop().fadeOut(); }
 
     });
-        // 移除背景影片
-        if( $(window).width() < 821){
-            $('#about video').remove();
-        }
-    
+    // 移除背景影片
+    if ($(window).width() < 821) {
+        $('#about video').remove();
+    }
+
 });
 
 // smoove 要單獨在外面
 $('.smoove').smoove({
-    offset:'40%', /* 數字不用引號 百分比要 */
+    offset: '40%', /* 數字不用引號 百分比要 */
 
 });
 
