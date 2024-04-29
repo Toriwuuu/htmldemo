@@ -14,33 +14,38 @@
 <body>
 
     <header class="topbar">
-
         <h1 class="logo">
             <a href="index.html"><img src="./images/logo_b.svg" alt="瑞塔花室LOGO"></a>
         </h1>
-
-        <nav>
-            <ul class="icon">
-                <li><a href="#" class="icon-fb"></a></li>
-                <li><a href="#" class="icon-ig"></a></li>
-                <li><a href="#" class="icon-line"></a></li>
-            </ul>
-            <ul class="menu glassmorphism">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#news">NEWS</a></li>
-                <li><a href="#service">SERVICE</a></li>
-                <li><a href="#video">VIDEO</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </nav>
+        <div class="nav-box">
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="navigation">
+                <ul class="icon">
+                    <li><a href="#" class="icon-fb"></a></li>
+                    <li><a href="#" class="icon-ig"></a></li>
+                    <li><a href="#" class="icon-line"></a></li>
+                </ul>
+                <ul class="menu glassmorphism">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#news">NEWS</a></li>
+                    <li><a href="#service">SERVICE</a></li>
+                    <li><a href="#video">VIDEO</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section id="banner">
             <h1>RITA<br>FLOWERM</h1>
         </section>
-        <section id="news" class="smoove" >
+        <section id="news" class="smoove">
             <header class="title">
                 <h2 class="whisper-regular">NEWS</h2>
                 <h3 class="noto-sans">最新消息</h3>
@@ -180,7 +185,7 @@
                 <textarea name="massage" id="massage" rows="5"></textarea>
                 <small>此表單為練習作品 不具收集功能與商業行為</small>
 
-                <button>
+                <button class="btn-form">
                     <span class="font-noto-sans">送 出</span>
                 </button>
             </form>

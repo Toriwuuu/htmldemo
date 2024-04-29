@@ -190,7 +190,6 @@ a {
 .glassmorphism {
     padding: 10px 10px 5px;
     border: solid 1px(rgba(255, 255, 255, .5));
-    border-radius: 99px;
     /* calc(infinity * 1px) */
     /* background-color: rgba(255, 255, 255, .4); */
     background-image: linear-gradient(70deg, to bottom right, rgba(255, 255, 255, .6), rgba(255, 255, 255, .7));
@@ -280,9 +279,7 @@ section {
 }
 
 /* 頁首區topbar */
-.topbar
-
-/*只管h1 nav*/
+.topbar/*只管h1 nav*/
     {
     position: fixed;
     /* 預設寬高抓尺寸內容 */
@@ -301,7 +298,7 @@ section {
     width: 60px;
 }
 
-.topbar nav {
+.navigation{
     display: flex;
     flex-direction: column;
     /* 主軸(垂直)排列 */
@@ -311,6 +308,10 @@ section {
 
 .topbar ul {
     display: flex;
+}
+
+.topbar menu{
+border-radius: 99px;
 }
 
 .icon a {
@@ -359,6 +360,52 @@ section {
 .menu a:hover {
     border-bottom: solid 2px #555;
 
+}
+
+@media (max-width:640px){
+
+    .nav-box{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 10px;
+    }
+    /* 漢堡 */
+    .hamburger{
+        margin-bottom: 10px;
+        /* 修改<button>預設樣式 */
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+    .bar{
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--deep);
+        margin: 5px auto;
+    }
+
+    .navigation{
+        align-items: center;
+    
+    }
+    .menu {
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, .6);
+    }
+    .menu a{
+    }
+    .icon{
+        order: 1;
+        margin: 20px 0;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, .5);
+        backdrop-filter: blur(2px);
+        border-radius: 99px;
+    }
 }
 
 /* ID */
@@ -535,8 +582,12 @@ box-shadow: 1px 1px 5px, blue;
     }
 
 }
-
-
+/* 小手機 */
+@media (max-width:376px){
+    #service .item:nth-child(3){
+        display: none;
+    }
+}
 
 
 
@@ -566,7 +617,8 @@ box-shadow: 1px 1px 5px, blue;
 }
     
 /* 手機 */
-@media (max-width:640px){}
+@media (max-width:640px){
+}
 
 
 #about {
@@ -609,6 +661,29 @@ box-shadow: 1px 1px 5px, blue;
     background-color: #8f6b6d;
     
 }
+
+
+/* 桌機 */
+@media (min-width:821px){
+
+}
+/* 平板 */
+@media (max-width:820px){
+#about .container {
+    width: 85%;
+}
+}
+    
+/* 手機 */
+@media (max-width:640px){
+    #about .container{
+        width: 90%;
+        padding: 50px;
+    }
+}
+
+
+
 
 #contact {
     display: flex;
@@ -687,7 +762,7 @@ box-shadow: 1px 1px 5px, blue;
     border: 1px solid rgba blue;
 }
 
-#button span {
+#btn-form span {
     color: var(--lesser-color);
     font-size: .8rem;
     font-weight: 500;
@@ -696,10 +771,10 @@ box-shadow: 1px 1px 5px, blue;
     /* 平衡字距空間  跟字距一樣*/
 }
 
-button:hover{
+#btn-form:hover{
     animation: rotate 0.7s ease-in-out;
 }
-button:hover span {
+#btn-form:hover span {
     animation: storm 0.7s ease-in-out both;
     animation-delay: 0.06s;
 }
@@ -759,6 +834,11 @@ footer {
 /* 桌機 */
 @media (min-width:821px){}
 /* 平板 */
-@media (max-width:820px){}
+@media (max-width:820px){
+    #form-contact{
+        width: 65%;
+    }
+}
+
 /* 手機 */
 @media (max-width:640px){}

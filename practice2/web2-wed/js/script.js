@@ -23,9 +23,16 @@ $(function () { /* document.ready */
         } else { $('#gotop').stop().fadeOut(); }
 
     });
+        // 移除背景影片
+        if( $(window).width() < 821){
+            $('#about video').remove();
+        }
+    
 });
 
-// smoove
+// smoove 要單獨在外面
 $('.smoove').smoove({
     offset:'40%', /* 數字不用引號 百分比要 */
+
 });
+
