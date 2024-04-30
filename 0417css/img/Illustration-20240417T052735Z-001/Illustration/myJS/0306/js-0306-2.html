@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 彈出輸入視窗prompt(標題或提示字)+訊息視窗alert()
+        // var strname = prompt("輸入稱呼");
+        // alert("午安," + strname);
+
+        // 輸入分數，檢查及格與否
+        // && and 
+        // || or
+        // ! not
+        // 檢查是否按取消
+        var point = prompt("輸入分數")
+
+        if (point == null) {
+            document.write("您按了取消");
+        } else if (point > 100 || point < 0) {
+            document.write("請輸入0-100的值");
+        } else if (point >= 60) {
+            document.write("pass");
+        } else if (point < 60) {
+            document.write("fail");
+        } else {
+            document.write("請輸入半形數字");
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

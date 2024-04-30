@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    /* 滿版設定 */
+    background-color: #ccc;
+    width: 100%;
+    /* 內容高度 */
+    height: 80vh;
+    /* 視窗高度 */
+    /*     background-image: url(./img/Illustration-20240417T052735Z-001/Illustration/Don’t\ wake\ up.jpg);
+    background-size: auto; */
+    background: linear-gradient(115deg, red 50%, transparent 50%),
+    url("./img/Illustration-20240417T052735Z-001/Illustration/Don’t\ wake\ up.jpg") right center / auto 100%;
+}
+
+.container {
+    width: 1200px; /* 電腦版尺寸通常從1200起跳 */
+    height: 100%;
+    margin: auto;
+}
+
+.banner-txt {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.banner-txt h1 {
+    font-size: 80px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.banner-txt h1 small {
+    /* 轉成區塊元素 */
+    display: block;
+    font-size: 50px;
+}

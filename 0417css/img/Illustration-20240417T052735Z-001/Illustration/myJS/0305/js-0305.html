@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css -->
+</head>
+
+<body>
+    <!-- 網頁結構 -->
+    <!-- JS -->
+
+    <script>
+        // 宣告單一變數
+        var a1;
+        // 建立連續變數，以逗號,分開
+        var a2, a3;
+
+        // 使用變數
+        console.log(a1);
+
+        // 指定值value給變數a1(指派運算子)
+        a1 = 5;     // 數值型別
+        console.log(a1);
+        a1 = '3';   // 字串型別
+        console.log(a1);
+        console.log(typeof (a1)) //typeof()可得到資料型別，通常是除錯時使用 (string字串)
+        a1 = true;
+        console.log(a1);
+        console.log(typeof (a1))
+
+        // 以下為串接資料示範 可用+或`
+
+        // 如果要將 a1 => ture => boolean 顯示在同一行
+        // 使用+ : 字串+值(變數)+字串+資料型別(變數))
+        console.log("a1 => " + a1 + " => " + typeof (a1));
+
+        // 使用`反引號:變數、運算式、函式 都放在${}
+        // 
+        console.log(`a1 => ${a1} => ${typeof(a1)}`);
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 遞增++
+        // 遞減--
+
+        // 宣告變數 a 的值為 5
+        var a = 5;
+        // 變數 a 加 1 // 方法1
+        a = a + 1;
+        console.log(a);
+        a++; // a = a + 1; // 方法2
+        console.log(a); // a=7
+        // 變數 a 減 1 
+        a = a - 1; // 方法1
+        console.log(a); // a=6
+        a--; // 方法2
+        console.log(a);
+
+        // 變數 a + 3
+        // 方法 1
+        a = a + 3;
+        console.log(a); // a=8
+        
+        // 方法1的簡化=>位元運算子
+        // 等號的左右兩邊有一樣的變數時，適用位元運算子
+        // 1. 等號右邊的變數拿掉 2. 加號寫在等號前面
+        // a = a + 3;
+        a += 3;
+        console.log(a);
+
+        // 變數a-2
+        // a = a - 2;
+        a -= 2;
+        console.log(a); 
+
+        // 變數a*5
+        a *= 5;
+        console.log(a);
+
+        a /= 5;
+        console.log(a);
+
+        var c = 5;
+        var d = "5";
+        console.log(c!=d);
+        console.log(c!==d);
+    </script>
+</body>
+
+</html>

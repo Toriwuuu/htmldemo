@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <Script>
+        // intPrice整數 價格
+        var intPrice = 500;
+        var intQty = 6;
+        var tot = intPrice * intQty;
+        var money;
+        // 小計超過1000以上免運費，否則運費100
+        if(tot >= 1000){
+            money = 0;
+        }
+        if(tot < 1000){
+            money = 100;
+        }
+
+        var dismoney = 0;
+
+        if(tot > 2000){
+            dismoney = tot * 0.1;
+            money = 0;
+        }
+
+        if(tot > 2500){
+            dismoney = 250;
+            money = 0;
+        }
+        // console.log(`應收金額: ${tot}, 折扣:${dismoney}元, 運費 ${money} 元, 折扣後實收:${tot-dismoney+money} `)
+        document.write(`應收金額: ${tot}, 折扣:${dismoney}元, 運費 ${money} 元, 折扣後實收:${tot-dismoney+money} `)
+
+    </Script>
+</body>
+</html>

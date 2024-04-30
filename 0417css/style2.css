@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+/* 假設html文字是有FRAME 跟圖片是兄弟 做遮色片
+    子層: positoin: absolute 子層固定位置
+    父層: position: relative 以父層基準點
+    
+*/
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #bda2a2;
+}
+.txt{
+    width: 0;/* 0 由左至右展開遮色片 */
+    color: transparent;
+    text-align: center;
+    line-height: 960px;
+    transition: all 1s; 
+    /* 可以用opacity來控制(0~1) 但會整層改變狀態 要在hover層再調數值 */
+}
+
+.box1{
+    width: 50%;
+    height: auto;
+    background: url(./img/Illustration-20240417T052735Z-001/Illustration/Face.jpg) center/ 100%;
+
+}
+.box1:hover .txt{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    color:rgba(255,255,255,1);
+
+}
+.box2{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.box2-1{
+    width: 50%;
+    height: 50%;
+        background: url(./img/Illustration-20240417T052735Z-001/Illustration/Chaos.jpg) center / 100%;
+
+}
+.box2-2{
+    width: 50%;
+    height: 50%;
+    background: url(./img/Illustration-20240417T052735Z-001/Illustration/call\ me.jpg) center / 100%;
+
+}
+.box2-3{
+    width: 50%;
+    height: 50%;
+    background: url(./img/Illustration-20240417T052735Z-001/Illustration/missing\ call.jpg);
+    background-size: cover;
+}
+.box2-4{
+    width: 50%;
+    height: 50%;
+    background: url(./img/Illustration-20240417T052735Z-001/Illustration/Moai.jpg) center / 100%;
+
+}
+
+/* 如果圖片在html中 可以用偽元素的方式來控制圖片
+.XXX:first-child 第一個XXX
+.XXX:first-child~.item 第一個XXX之後的*/
