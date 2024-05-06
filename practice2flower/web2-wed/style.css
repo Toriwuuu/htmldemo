@@ -410,25 +410,25 @@ section {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+
+    
     .navigation {
         align-items: center;
         display: none;
         animation:hide 1s both;
     }
 
-    
+    @keyframes hide{
+        from {opacity: 1; display:flex ; }
+        to {opacity: 0; display: none;}
+    } 
+
     .navigation.show{
         display: flex;
         animation: show 1s both;
     }
 
-
-    /* @keyframe hide{
-        from{opacity: 1;}
-        to{opacity: 0;}
-    } */
-
-    @keyframe show{
+    @keyframes show {
         from{opacity: 0;}
         to{opacity: 1;}
     }

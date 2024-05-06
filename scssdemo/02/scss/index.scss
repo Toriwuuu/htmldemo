@@ -1,0 +1,22 @@
+@import 'variable';
+.box{
+    background-color:antiquewhite;
+    @media($breakpoint-sm){
+        width: 90%;
+    }
+
+}
+.title{
+    color: aquamarine;
+    line-height: map-get($font-size , xl)*2;
+    margin: $interval-title;
+}
+// 插植
+.#{$button-prefix} {
+    &-gotop{
+        color:$primary-colo;
+    }
+    &-more{
+        color: $primary-colo;
+    }
+}

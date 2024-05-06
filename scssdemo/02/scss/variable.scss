@@ -1,0 +1,30 @@
+//顏色規範
+//字體
+$base-deep:#444;
+$base-light:#eee;
+// 主色調
+$primary-colo: #888;
+// 字級規範
+$font-size-xs:.9rem ;
+$font-size:(
+    xs: .9rem,
+    s: 1.1rem,
+    m: 1.4rem,
+    l: 1.6rem,
+    xl: 1.8rem,
+
+);
+
+//響應式斷點
+
+$breakpoint-sm:'max-width:640px';
+
+//自首規範
+$button-prefix: btn;
+
+// 字體規範
+$font-family-base: -apple-system;
+// 間距規範
+$interval-s: 5px;
+
+$interval-title:30px 15px;

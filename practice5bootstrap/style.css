@@ -14,10 +14,15 @@ body{
     background-color: black;
 }
 .carousel-item img{
-    object-fit: contain;
+    object-fit: cover;
     height:100vh;
 }
-.navbar{height: 75px;
+.navbar{
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    height: 75px;
 }
 .navbar-brand{
     width: 100px;

@@ -1,0 +1,21 @@
+.box {
+  background-color: antiquewhite;
+}
+@media (max-width:640px) {
+  .box {
+    width: 90%;
+  }
+}
+
+.title {
+  color: aquamarine;
+  line-height: 3.6rem;
+  margin: 30px 15px;
+}
+
+.btn-gotop {
+  color: #888;
+}
+.btn-more {
+  color: #888;
+}/*# sourceMappingURL=index.css.map */
