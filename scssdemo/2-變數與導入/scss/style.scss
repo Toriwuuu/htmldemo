@@ -1,0 +1,77 @@
+@use 'reset';
+@use 'shop';
+@use 'variable' as v;
+
+/* 共用CSS */
+$title-color: #a7339d;
+$title-color: #3375a7!default;
+
+a {
+    color: v.$base-deep;
+
+    &:hover {
+        color: v.$primary-colo;
+    }
+
+    &:active {
+        color: v.$primary-colo-2;
+    }
+}
+
+.title-1 {
+    font-size: map-get(v.$font-size , xl );
+    line-height: map-get(v.$font-size , xl )*1.5;
+    color: $title-color;
+    margin: v.$interval-title;
+}
+.title-2 {
+    font-size: map-get( v.$font-size , l );
+    $title-color: #154920!global;
+    color: $title-color;
+    margin: v.$interval-title;
+}
+.titl-3 {
+    font-size: map-get( v.$font-size , m );
+    color: $title-color;
+    margin: v.$interval-title;
+}
+// @media (v.$breakpoint-sm) {
+//     .box {
+//         width: 90%;
+//     }
+// }
+// @media (v.$breakpoint-md) {
+//     .box {
+//         width: 80%;
+//     }
+// }
+// @media (v.$breakpoint-lg) {
+//     .box {
+//         width: 80%;
+//         max-width: 1440px;
+//     }
+// }
+.box {
+    background-color: v.$background-color;
+
+    @media (v.$breakpoint-sm) {
+        width: 90%;
+    }
+    @media (v.$breakpoint-md) {
+        width: 80%;
+    }
+    @media (v.$breakpoint-lg) {
+        width: 80%;
+        max-width: 1440px;
+    }
+}
+// 插值
+.#{v.$button-prefix} {
+
+    &-gotop {
+        color: v.$primary-colo;
+    }
+    &-more {
+        color: v.$primary-colo-2;
+    }
+}

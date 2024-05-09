@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* 購物車 css */
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+nav ul li {
+  color: #444;
+}/*# sourceMappingURL=shop.css.map */

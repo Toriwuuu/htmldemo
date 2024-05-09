@@ -1,0 +1,168 @@
+@use 'reset';
+@use 'keyframe';
+@use 'shop';
+@use 'variable' as *;
+@use 'function' as *;
+
+/* 共用CSS */
+$title-color: #a7339d;
+$title-color: #3375a7 !default;
+
+a {
+    color: $base-deep;
+
+    &:hover {
+        color: $primary-colo;
+    }
+
+    &:active {
+        color: $primary-colo-2;
+    }
+}
+
+.title-1 {
+    font-size: map-get($font-size , xl);
+    line-height: map-get($font-size , xl)*1.5;
+    color: $title-color;
+    margin: $interval-title;
+}
+
+.title-2 {
+    font-size: map-get($font-size , l);
+    $title-color: #154920 !global;
+    color: $title-color;
+    margin: $interval-title;
+}
+
+.titl-3 {
+    font-size: map-get($font-size , m);
+    color: $title-color;
+    margin: $interval-title;
+}
+
+// @media ($breakpoint-sm) {
+//     .box {
+//         width: 90%;
+//     }
+// }
+// @media ($breakpoint-md) {
+//     .box {
+//         width: 80%;
+//     }
+// }
+// @media ($breakpoint-lg) {
+//     .box {
+//         width: 80%;
+//         max-width: 1440px;
+//     }
+// }
+.box {
+    @extend %flex-center;
+    @extend %multi-line;
+    @include bordered($color: pink);
+    background-color: $background-color;
+
+    @media ($breakpoint-sm) {
+        width: 90%;
+    }
+
+    @media ($breakpoint-md) {
+        width: 80%;
+    }
+
+    @media ($breakpoint-lg) {
+        width: 80%;
+        max-width: 1440px;
+    }
+}
+
+// 插值
+.#{$button-prefix} {
+
+    &-gotop {
+        @extend %glassmorphism;
+        color: $primary-colo;
+        @include animation(storm, .5);
+    }
+
+    &-more {
+        @extend %glassmorphism;
+        @include animation(rotate, .35);
+        color: $primary-colo-2;
+    }
+}
+
+.menu {
+    @extend %glassmorphism;
+    @extend %flex-center;
+}
+
+.item-1 {
+    @include mask-img(url(mask-1.svg));
+}
+
+.item-2 {
+    @include mask-img(url(mask-2.svg));
+}
+
+.item-3 {
+    @include mask-img(url(mask-3.svg));
+}
+
+// 迴圈陣列
+//  // icon nav
+// @each $icon-name in fb, ig, line {
+//     .icon-#{ $icon-name } {
+//         background-image: url('../images/icon-#{ $icon-name }.svg');
+//     }
+
+//     .icon-#{ $icon-name }:hover {
+//         background-image: url('../images/icon-#{ $icon-name }-hover.svg');
+//     }
+// }
+
+// // menu nav
+// $menus: (
+//     "btn-1", "btn-2", "btn-3", "btn-4", "btn-5"
+// );
+// @each $menu-name in $menus {
+//     .menu-#{ $menu-name } {
+//         background-image: url('../images/menu-#{ $menu-name }.svg');
+
+//         &:hover {
+//             background-image: url('../images/menu-#{ $menu-name }-hover.svg');
+//         }
+//     }
+// }
+
+// 二維陣列
+@each $icon-name, $menu-name in (fb, ig, line),
+                                (btn-1, btn-2, btn-3, btn-4, btn-5) {
+    .icon-#{ $icon-name } {
+        background-image: url('../images/icon-#{ $icon-name }.svg');
+
+        &:hover {
+            background-image: url('../images/icon-#{ $icon-name }-hover.svg');
+        }
+    }
+
+    .menu-#{ $menu-name } {
+        background-image: url('../images/menu-#{ $menu-name }.svg');
+
+        &:hover {
+            background-image: url('../images/menu-#{ $menu-name }-hover.svg');
+        }
+    }
+}
+// banner
+$banners: (
+    'banner1':'../images/slide-1.jpg',
+    'banner2':'../images/slide-2.jpg',
+    'banner3':'../images/slide-3.jpg',
+);
+
+@each $banner-name, $img-src in $banners {
+    .#{$banner-name} {
+        background-image: url(#{$img-src});
+    }
+}

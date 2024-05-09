@@ -1,0 +1,14 @@
+@import 'variable';
+
+/* 購物車 css */
+nav {
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+
+        li {
+            color: $base-deep;
+        }
+    }
+}

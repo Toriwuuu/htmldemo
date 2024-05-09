@@ -1,0 +1,23 @@
+@use '../variable' as *;
+
+%glassmorphism {
+    padding: $interval-xy-m;
+    border: solid 1px $alpha-light-3;
+    background-image: $linear-gradient-light;
+    backdrop-filter: blur(2px);
+    box-shadow: $box-shadow;
+}
+
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+%multi-line{
+    /* 多行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    //  -webkit-line-clamp: 6;
+}

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/*嵌套類別*/
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+nav ul li {
+  color: #888;
+}
+
+a {
+  color: #888;
+}
+a:hover {
+  color: aquamarine;
+}
+a:active {
+  color: red;
+}
+.menu a {
+  display: block;
+}
+
+.box {
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  text-decoration: underline;
+  text-overflow: ellipsis;
+  font-size: 2rem;
+  font-family: "noto-sans-tc";
+  font-weight: bold;
+}
+
+.title {
+  font: 2rem bold;
+}/*# sourceMappingURL=nesting.css.map */

@@ -1,0 +1,51 @@
+/*嵌套類別*/
+nav {
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+
+        li {
+            color: #888;
+        }
+    }
+}
+// 嵌套偽類別
+a {
+    color: #888;
+
+    &:hover {
+        color: aquamarine;
+    }
+
+    &:active {
+        color: red;
+    }
+    // 元素嵌套元素
+    .menu & {
+        display: block;
+    }
+}
+// 嵌套屬性
+.box {
+    background: {
+        image: url('images/bg.jpg');
+        size: cover;
+        position: center;
+    }
+
+    text: {
+        align: center;
+        decoration: underline;
+        overflow: ellipsis;
+    }
+
+    font: {
+        size: 2rem;
+        family: 'noto-sans-tc';
+        weight: bold;
+    }
+}
+.title {
+    font: 2rem bold;
+}

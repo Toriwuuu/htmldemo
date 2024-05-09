@@ -1,0 +1,13 @@
+@use '../variable' as *;
+@use '../function/extend';
+
+@mixin bordered ( $width:1px, $color:blue ){
+    border: $width solid $color;
+}
+@mixin animation ( $name,$time ){
+    animation: $name $time ease-out both;
+}
+@mixin mask-img($property) {
+    -webkit-mask-image: $property;
+    mask-image: $property;
+}
