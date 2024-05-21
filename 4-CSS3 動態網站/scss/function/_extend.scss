@@ -1,0 +1,10 @@
+%sec-centered{
+    display: flex;
+    align-items: center;
+}
+%multi-line{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient:block-axis;
+}

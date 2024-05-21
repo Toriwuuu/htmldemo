@@ -1,4 +1,68 @@
 @use 'reset';
 @use 'variable' as *;
 @use 'function' as *;
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Chivo&display=swap');
 
+body {
+    font-family: $main-font;
+    font-optical-sizing: auto;
+    background-color: $primary-color;
+    color: $light;
+}
+
+.menu {
+    a {
+        color: $light;
+        margin: map-get($interval , menu);
+    }
+}
+
+main {
+    @extend %flex-center;
+    justify-content: center
+}
+
+.topbar {
+    @extend %flex-center;
+    justify-content: space-between;
+    height: 60px;
+    padding: map-get($interval , bar);
+}
+
+#banner {
+    width: $main-w;
+    @extend %flex-center;
+    justify-content: center;
+
+    div {
+        flex: 1;
+    }
+
+    .content {
+        h1 {
+            font-size: map-get($font-size , xxl);
+            font-weight: map-get($font-weight, bolder);
+            line-height: 0.8;
+
+            span {
+                font-size: map-get($font-size, l);
+                font-weight: map-get($font-weight, bold);
+            }
+        }
+
+        p {
+            font-size: 1.3rem;
+        }
+
+        a {
+            display: inline-block;
+            background-color: $light;
+            padding: map-get($interval, btn-xy);
+            margin: map-get($interval, btn-y);
+            font-size: map-get($map: $font-size, $key: s);
+            font-weight: map-get($map: $font-weight, $key: bold);
+            color: $deep;
+            border-radius: $radius-infinity;
+        }
+    }
+}

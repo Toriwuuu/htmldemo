@@ -1,0 +1,9 @@
+@mixin base-img{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+@mixin base-a{
+    display: block;
+    color: $deep;
+}
