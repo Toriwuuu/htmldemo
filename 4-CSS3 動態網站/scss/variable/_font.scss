@@ -1,12 +1,15 @@
-$main-font: "Catamaran", sans-serif;
+// 字體規範
+$main-font: "Catamaran";
 
-$font-size: (
-    xxl:11rem,
-    m:1.3rem,
-    l:2rem
+// 字級規範
+$font-size:( // map-get($font-size , )
+    s: 1.15rem,
+    m: 1.3rem,
+    l: 2rem,
+    xxl: 11rem
 );
-
-$font-wight: (
-    black: 900,
-    bold: 700,
+// 字重規範
+$font-weight:( // map-get($font-weight , )
+    bolder: 900,
+    bold: 700
 );

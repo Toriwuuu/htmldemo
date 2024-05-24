@@ -1,10 +1,34 @@
-%sec-centered{
+@use "../variable/" as *;
+@use "../function/mixin" as *;
+
+%flex-center {
     display: flex;
     align-items: center;
 }
-%multi-line{
+
+%multi-line {
+    /* 多行省略 */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-box-orient:block-axis;
+    -webkit-box-orient: vertical;
+}
+
+%btn-main {
+    display: inline-block;
+    background-color: $light;
+    padding: map-get($interval , btn-xy);
+    margin: map-get($interval , btn-y);
+
+    font-weight: map-get($font-weight , bold);
+    color: $deep;
+    border-radius: $radius-infinity;
+    @include bordered (3px, $alpha);
+    transition: $base-speed;
+
+    &:hover {
+        color: $light;
+        background-color: $deep;
+        @include bordered (3px, $light);
+    }
 }

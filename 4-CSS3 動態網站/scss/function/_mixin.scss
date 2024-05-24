@@ -1,9 +1,11 @@
-@mixin base-img{
+@mixin base-img {
     display: block;
     width: 100%;
     max-width: 100%;
 }
-@mixin base-a{
-    display: block;
-    color: $deep;
+@mixin bordered ($width , $color) {
+    border: $width solid $color;
+}
+@mixin animation ($name , $delay){
+    animation: $name 12s $delay ease-in-out both infinite;
 }

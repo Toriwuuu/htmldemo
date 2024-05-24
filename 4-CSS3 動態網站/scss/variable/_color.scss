@@ -1,10 +1,16 @@
+// 灰階色調
 $black: #070707;
 $deep: #1a1a1a;
 $deep-grey: #302f2f;
-$light: #c4bebe;
+$light: #f9f2f2;
 
-$primary-color:#e70112;
+// 主色調
+$primary-color: #e70112;
 
-$secondary-color: #b20722;
-$secondary-color2: #bc00b7;
-$secondary-color3: #23b2ff;
+// 輔助色調
+$secondary-color: #b20722; //深紅色
+$secondary-color2: #bc00b7; // 紅紫色
+$secondary-color3:#23b2ff; //藍色
+
+// 透明色調
+$alpha: transparent;

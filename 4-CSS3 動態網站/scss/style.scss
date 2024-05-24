@@ -1,7 +1,8 @@
-@use 'reset';
-@use 'variable' as *;
-@use 'function' as *;
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Chivo&display=swap');
+@use "reset";
+@use "keyframes";
+@use "variable" as *;
+@use "function" as *;
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&display=swap');
 
 body {
     font-family: $main-font;
@@ -9,60 +10,74 @@ body {
     background-color: $primary-color;
     color: $light;
 }
-
+main {
+    @extend %flex-center;
+    justify-content: center;
+}
+section {
+    height: 100vh;
+}
+/* 頁首區 */
+.topbar {
+    position: fixed;
+    @extend %flex-center;
+    justify-content: space-between;
+    padding: map-get($interval , btn-xy);
+}
+.logo{
+    height: 100%;
+}
 .menu {
+    @extend %flex-center;
     a {
         color: $light;
         margin: map-get($interval , menu);
     }
 }
-
-main {
-    @extend %flex-center;
-    justify-content: center
-}
-
-.topbar {
-    @extend %flex-center;
-    justify-content: space-between;
-    height: 60px;
-    padding: map-get($interval , bar);
-}
-
+/* banner */
 #banner {
     width: $main-w;
     @extend %flex-center;
     justify-content: center;
-
     div {
         flex: 1;
     }
-
     .content {
         h1 {
             font-size: map-get($font-size , xxl);
-            font-weight: map-get($font-weight, bolder);
+            font-weight: map-get($font-weight , bolder);
             line-height: 0.8;
-
             span {
-                font-size: map-get($font-size, l);
-                font-weight: map-get($font-weight, bold);
+                font-size: map-get($font-size , l);
+                font-weight: map-get($font-weight , bold);
             }
         }
-
         p {
-            font-size: 1.3rem;
+            font-size: map-get($font-size , m);
+        }
+        a {
+            @extend %btn-main;
+            font-size: map-get($font-size , s);
+        }
+    }
+    .photo {
+        position: relative;
+        height: 100%;
+
+        figure {
+            position: absolute;
         }
 
-        a {
-            display: inline-block;
-            background-color: $light;
-            padding: map-get($interval, btn-xy);
-            margin: map-get($interval, btn-y);
-            font-size: map-get($map: $font-size, $key: s);
-            font-weight: map-get($map: $font-weight, $key: bold);
-            color: $deep;
-            border-radius: $radius-infinity;
+        .mario1{
+            width: 55%;
+            @include animation( mario1, 0 )
+        }
+        .luigi{
+            width: 50%;
+        }
+        .brick{
+            height: 75%;
         }
     }
 }
+

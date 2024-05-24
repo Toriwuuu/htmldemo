@@ -3,31 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Mario</title>
-    <link rel="icon" href="./favicon.ico">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
     <header class="topbar">
-        <h1>
-            <a href="https://www.nitendo.com/" target="_blank">
-                <img src="./images/nintendo-racetrack.svg" alt="nitendo"></a>
+        <h1 class="logo">
+            <a href="https://www.nintendo.com/" target="_blank">
+                <img src="images/nintendo-racetrack.svg" alt="nintendo">
+            </a>
         </h1>
         <nav>
-            <ul>
+            <ul class="menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Mario History</a></li>
+                <li><a href="#">Mario history</a></li>
                 <li><a href="#">Characters</a></li>
                 <li><a href="#">News</a></li>
-                <li><a href="#"></a></li>
+                <li><a href="#">Super Mario</a></li>
             </ul>
         </nav>
     </header>
-    <main></main>
+    <main>
+        <section id="banner">
+            <div class="content">
+                <h1><span>Official home of</span><br>Mario</h1>
+                <p>If you’re a Mario fan—or even if you’ve just found out about him today—you’ve come to the right place! Learn everything there is to know about that multitalented, mustached marvel, and check out the latest news, videos, and more.</p>
+                <a href="#">Meet Mario !</a>
+            </div>
+            <div class="photo">
+                <!-- div.banner$*3>figure.*3>img[src="images/banner.png"] -->
+                <div class="banner1">
+                    <figure class="mario1"><img src="images/banner1-mario.png" alt=""></figure>
+                    <figure class="luigi"><img src="images/banner1-luigi.png" alt=""></figure>
+                    <figure class="brick"><img src="images/banner1-brick-row.png" alt=""></figure>
+                </div>
+<!--                 <div class="banner2">
+                    <figure class="mario2"><img src="images/banner2-mario.png" alt=""></figure>
+                    <figure class="peach"><img src="images/banner2-peach.png" alt=""></figure>
+                    <figure class="pipe"><img src="images/banner2-pipe.png" alt=""></figure>
+                </div>
+                <div class="banner3">
+                    <figure class="mario3"><img src="images/banner3-mario.png" alt=""></figure>
+                    <figure class="toad"><img src="images/banner3-toad.png" alt=""></figure>
+                    <figure class="star"><img src="images/banner3-star.png" alt=""></figure>
+                </div>
+ -->            </div>
+        </section>
+
+
+
+        <section id="news"></section>
+        <section id="Switch"></section>
+    </main>
+    <footer></footer>
 </body>
 
 </html>
