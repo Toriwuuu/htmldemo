@@ -1,0 +1,35 @@
+@use '../variable' as *;
+
+@mixin font-against {
+    font-family: against-regular;
+    src: url(./webfonts/against-regular.otf);
+}
+
+@mixin base-img {
+    display: block;
+    width: 100%; //svg預設W100%,其他圖檔預設為原尺寸
+}
+
+@mixin base-a {
+    display: block;
+    color: $deep;
+    text-decoration: none; // 取消預設的底線裝飾
+}
+
+@mixin bordered ($width , $color) {
+    border: $width solid $color;
+}
+@mixin border-b ($width , $color) {
+    border-bottom: $width solid $color;
+}
+@mixin border-t ($width , $color) {
+    border-top: $width solid $color;
+}
+@mixin outline ($width , $color) {
+    outline: $width solid $color;;
+}
+
+
+@mixin animation ( $name ) {
+    animation: $name 0.7s ease-in-out both;
+}

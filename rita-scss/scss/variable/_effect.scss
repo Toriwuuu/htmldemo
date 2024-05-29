@@ -1,0 +1,14 @@
+// 圓角
+$radius-xs: 5px;
+$radius-m: 20px;
+$radius-infinity: 99px;
+
+// 陰影
+$shadow-glass: 2px 2px 4px 1px rgba(0, 0, 0, 0.2),inset -1px -1px 1px rgba(255, 255, 255, 0.5);
+$shadow-box: 1px 1px 5px rgba(0, 0, 0, 0.1);
+
+// 濾鏡
+$filter-blur-s: blur(2px);
+
+// transition
+$base-speed: .4s;

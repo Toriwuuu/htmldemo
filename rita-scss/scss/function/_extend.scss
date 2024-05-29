@@ -1,0 +1,60 @@
+@use "../variable/" as *;
+
+%font-playfairy {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+}
+
+%font-noto-sans {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+}
+
+%sec-centered {
+    display: flex;
+    align-items: center;
+}
+
+%glassmorphism {
+    /* glassmorphism */
+    border: 1px solid $alpha-light-3;
+    background-image: $gradient-glass;
+    backdrop-filter: $filter-blur-s;
+    box-shadow: $shadow-glass;
+}
+
+%text-bg {
+    /* 文字套用背景圖片(漸層) */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: $gradient-text;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.6));
+}
+
+%object-cover { //img,video共用
+    /* 自動置中剪裁 */
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+%bg-cover {
+    background-size: cover;
+    background-position: center;
+}
+
+%multi-line {
+    /* 多行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+%single-line {
+    /* 單行省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; //文字不換行
+}

@@ -1,0 +1,584 @@
+@use "reset";
+@use "keyframes";
+@use "function" as *;
+@use "variable" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@font-face {
+    @include font-against;
+}
+
+/* 捲軸樣式 */
+::-webkit-scrollbar {
+    //捲軸整體色
+    background-color: map-get($lesser, color-1);
+
+    &-button {
+        //捲軸上下左右按鈕
+        background-color: map-get($lesser, color-4);
+    }
+
+    &-thumb {
+        //拖曳手柄
+        background-color: map-get($lesser, color-3);
+    }
+
+    &-track {
+        //捲軸軌道色
+        background-color: map-get($lesser, color-2);
+    }
+
+    &-track-piece {
+        //捲軸未被覆蓋軌道色
+        background-color: $white;
+    }
+
+    &-corner {
+        //單邊捲軸不會出現
+        background-color: $deep;
+    }
+}
+
+/* 共用標籤 */
+* {
+    box-sizing: border-box; //不累加邊框與內距
+}
+
+body {
+    font-family: $base-font-style;
+    color: $deep;
+    overflow-x: hidden;
+}
+
+img {
+    @include base-img;
+}
+
+a {
+    @include base-a;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+/* 頁首區 */
+.topbar {
+    @extend %sec-centered;
+    position: fixed;
+    z-index: $z-index-xl;
+    width: $size-full;
+    justify-content: space-between;
+    padding: map-get($interval, xy-s);
+}
+
+.logo {
+    width: 60px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @media ($mediaSm) {
+        display: none;
+        align-items: center;
+        @include animation (hide);
+    }
+}
+
+@media ($mediaSm) {
+    .navigation.show {
+        display: flex;
+        @include animation (show);
+    }
+}
+
+.topbar {
+    & ul {
+        display: flex;
+    }
+
+    @media ($mediaSm) {
+        align-items: flex-start;
+        padding-top: map-get($interval , l);
+    }
+}
+
+.nav-box {
+    @media ($mediaSm) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: map-get($interval , s);
+    }
+}
+
+.hamburger {
+    display: none;
+
+    @media ($mediaSm) {
+        display: block;
+        /* 三條線按鈕 */
+        margin-bottom: map-get($interval, s);
+
+        //修改<button>預設樣式
+        background-color: transparent;
+        border: none;
+        padding: map-get($interval, 0);
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: $deep;
+            margin: map-get($interval, bar);
+            transition: $base-speed;
+        }
+    }
+}
+
+@media($mediaSm) {
+
+    /* 三 變換為 X */
+    .hamburger.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+.icon {
+    @media ($mediaSm) {
+        order: 1;
+        margin: map-get($interval , icon);
+        padding: map-get($interval , m);
+        border-radius: $radius-infinity;
+
+        background-color: $alpha-light-6;
+        backdrop-filter: blur(2px);
+    }
+
+    & a {
+        width: $size-icon;
+        height: $size-icon;
+        margin: map-get($interval, xs);
+        transition: $base-speed;
+    }
+}
+
+@each $icon-name in $icons {
+    .#{$icon-name} {
+        background-image: url(../images/#{$icon-name}.svg);
+
+        &:hover {
+            background-image: url(../images/#{$icon-name}-hover.svg);
+        }
+    }
+}
+
+.menu {
+    @extend %glassmorphism;
+
+    border-radius: $radius-infinity;
+    padding: map-get($interval , memu);
+
+    @media ($mediaSm) {
+        flex-direction: column;
+        padding: map-get($interval , l);
+        border-radius: $radius-m;
+        background-color: $alpha-light-6;
+    }
+
+    & a {
+        @include bordered (2px, transparent);
+
+        margin: map-get($interval, memu-a);
+        padding-bottom: map-get($interval , xs);
+        transition: $base-speed;
+
+        @media ($mediaSm) {
+            margin: map-get($interval , l);
+        }
+
+        &:hover {
+            @include border-b (2px, $deep);
+        }
+    }
+}
+
+section {
+    @extend %sec-centered;
+    flex-direction: column;
+    justify-content: center; //主軸：垂直
+    height: $size-h-full;
+}
+
+.title {
+    @include border-t (5px, $deep);
+    @include border-b (5px, $deep);
+    padding: map-get($interval , xy-m);
+    text-align: center;
+    margin-bottom: map-get($interval , xl);
+
+    h2 {
+        font-size: map-get($font-size, l);
+        font-weight: map-get($font-weight, bold);
+
+        font-family: $font-en;
+        font-optical-sizing: auto;
+    }
+
+    h3 {
+        font-weight: lighter;
+        padding-top: map-get($interval , rem-xs);
+        font-family: $font-tc;
+        font-optical-sizing: auto;
+    }
+}
+
+.list-box {
+    display: flex;
+    width: $size-box;
+    max-width: $size-box-max;
+}
+
+.item {
+    flex: 1;
+    margin: map-get($interval , m);
+    border-radius: $radius-m;
+    overflow: hidden;
+    box-shadow: $shadow-box;
+}
+
+.item h1 {
+    /* #news h1 */
+    font-size: map-get($font-size , m);
+    font-weight: map-get($font-weight , normal);
+    margin-bottom: map-get($interval , s);
+}
+
+.content {
+    /* #news .content */
+    padding: map-get($interval , news-item);
+}
+
+/* banner區 */
+#banner {
+    @extend %sec-centered;
+
+    justify-content: center;
+    background-image: url(../images/banner_1.jpg);
+    background-size: cover;
+
+    h1 {
+        @extend %text-bg;
+
+        font-family: $font-banner;
+        font-size: map-get($font-size , xl);
+        text-align: center;
+        line-height: map-get($font-size , xl) * 1.2;
+        font-weight: map-get($font-weight , bold);
+    }
+}
+
+/* 最新消息區 */
+#news {
+    background-color: map-get($bg , color-1);
+
+
+    figure {
+        height: 33vh;
+        overflow: hidden;
+    }
+
+    img {
+        @extend %object-cover;
+    }
+
+    p {
+        @extend %multi-line;
+        -webkit-line-clamp: 6;
+        line-height: 1.4;
+        text-align: justify; //齊行，英文單字間距均分
+    }
+
+    .item:last-child {
+        @media ($mediaMd) {
+            display: none;
+        }
+    }
+
+    @media ($mediaSm) {
+        .item:nth-child(n+2) {
+            display: none;
+        }
+    }
+}
+
+/* 服務項目區 */
+#service {
+    background-color: map-get($bg , color-2);
+
+    .list-box {
+        @media ($mediaMd) {
+            flex-direction: column;
+            height: 65vh;
+        }
+
+        @media ($mediaSm) {
+            height: 70vh;
+        }
+    }
+
+    .item {
+        @extend %bg-cover;
+        height: 60vh;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .item:nth-child(n+3) {
+        @media ($mediaMd) {
+            display: none;
+        }
+    }
+
+    .item:nth-child(3) {
+        @media ($mediaSm) {
+            display: flex;
+        }
+
+        @media ($mediaXs) {
+            display: none;
+        }
+    }
+
+    a {
+        width: $size-full;
+        color: $light;
+        background-color: $alpha-deep;
+    }
+
+    p {
+        @extend %single-line;
+    }
+}
+
+@each $svc-name in $svcs {
+    .#{$svc-name} {
+        background-image: url(../images/#{$svc-name}.jpg)
+    }
+}
+
+/* 宣傳影片區 */
+#video {
+    background-color: map-get($bg , color-3);
+
+    @media ($mediaMd) {
+        height: auto;
+        padding: 100px 0;
+    }
+
+    video {
+        @media ($mediaLg) {
+            height: 65vh;
+        }
+
+        @media ($mediaMd) {
+            width: 80%;
+        }
+    }
+}
+
+/* 關於我們 */
+#about {
+    position: relative;
+    background-color: $alpha-red;
+
+    video {
+        @extend %object-cover;
+
+        position: absolute;
+        z-index: $z-index-xs;
+        filter: opacity(20%) brightness(120%) saturate(150%);
+    }
+
+    .container {
+        @extend %sec-centered;
+        flex-direction: column;
+
+        background-color: $alpha-red2;
+        width: 65%;
+        height: $size-h-full;
+        padding: map-get($interval , xy-xl);
+
+        @media ($mediaMd) {
+            width: 85%;
+        }
+
+        @media ($mediaSm) {
+            width: 90%;
+            padding: map-get($interval , xxl);
+        }
+    }
+
+    p {
+        overflow: auto;
+        padding-right: map-get($interval , m);
+        height: $size-full;
+    }
+
+    p::-webkit-scrollbar {
+        /* 捲軸整體色 */
+        background-color: map-get($lesser , color-1);
+        width: 12px;
+    }
+
+    p::-webkit-scrollbar-button {
+        /* 捲軸上下左右按鈕 */
+        background-color: map-get($lesser , color-4);
+        width: 14px;
+        height: 12px;
+    }
+
+    p::-webkit-scrollbar-thumb {
+        /* 拖曳手柄 */
+        @include bordered (1px, map-get($lesser , color-4));
+        background-color: map-get($lesser , color-3);
+    }
+
+    p::-webkit-scrollbar-track-piece {
+        /* 捲軸未被覆蓋軌道色 */
+        @include bordered (1px, map-get($lesser , color-4));
+        background-color: map-get($lesser , color-2);
+    }
+
+    p::-webkit-scrollbar-corner {
+        /* 單邊捲軸不會出現 */
+        background-color: $deep;
+    }
+}
+
+
+
+/* 聯絡我們 */
+#contact {
+    @extend %bg-cover;
+    background: url(./images/bg_contact.jpg) fixed;
+}
+
+#form-contact {
+
+    @extend %sec-centered;
+    flex-direction: column;
+    width: 35%;
+    
+    & > * {
+        display: block;
+        width: $size-full;
+    }
+    small {
+        margin-top: map-get($interval , s);
+        font-size: map-get($font-size , xs);
+        text-align: center;
+    }
+    label {
+        margin: map-get($interval , label);
+        font-size: map-get($font-size , s);
+    }
+    input, textarea {
+        padding: map-get($interval , xy-s);
+        color: map-get($lesser , color-4);
+        @include bordered (1px, map-get($lesser , color-2));
+        // border: 1px solid #d1b8ba;
+        border-radius: $radius-xs;
+    }
+    input:focus, textarea:focus {
+        @include outline (2px, map-get($lesser , color-3));
+        // outline: 2px solid #aa8789;
+        /* 修改有些瀏覽器的預設外框線 */
+    }
+
+    textarea::-webkit-resizer {
+        /* 縮放按鈕 */
+        background-color: map-get($lesser , color-3);
+    }
+
+    input::placeholder {
+        color: map-get($lesser , color-2);
+        font-size: map-get($font-size , xs);
+    }
+
+    /* 表單按鈕 */
+    .btn-form {
+        margin-top: map-get($interval , l);
+        border-radius: $radius-infinity;
+        
+        @extend %sec-centered;
+        justify-content: center;
+        
+        height: 60px;
+        width: 210px;
+        background-color: $white;
+
+        @include bordered (1px, map-get($lesser , color-3));
+        
+        span {
+            color: map-get($lesser , color-3);
+            font-size: map-get($font-size , s);
+            letter-spacing: map-get($interval , s);
+            padding-left: map-get($interval , s);
+            font-family: $font-tc;
+            font-optical-sizing: auto;
+        }
+
+        &:hover {
+            @include animation (rotate);
+
+            span {
+                @include animation (storm);
+                animation-delay: 0.06s;
+            }
+        }
+    }
+
+    @media ($mediaMd) {
+        width: 65%;
+    }
+}
+
+footer {
+    @extend %sec-centered;
+    justify-content: center;
+
+    background-color: map-get($bg , color-1);
+    height: 100px;
+}
+
+
+#btn {
+    &-gotop {
+        @extend %glassmorphism;
+
+        display: none;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+
+        width: $size-btn-l;
+        height: $size-btn-l;
+        border-radius: $radius-infinity;
+        padding: map-get($interval, xs);
+        cursor: pointer;
+    }
+}
