@@ -6,6 +6,6 @@
 @mixin bordered ($width , $color) {
     border: $width solid $color;
 }
-@mixin animation ($name , $delay){
+@mixin animation ($name , $delay) {
     animation: $name 12s $delay ease-in-out both infinite;
 }

@@ -3,9 +3,11 @@ $main-font: "Catamaran";
 
 // 字級規範
 $font-size:( // map-get($font-size , )
+    xs:0.9rem,
     s: 1.15rem,
     m: 1.3rem,
     l: 2rem,
+    xl: 3rem,
     xxl: 11rem
 );
 // 字重規範

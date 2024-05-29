@@ -10,56 +10,131 @@ body {
     background-color: $primary-color;
     color: $light;
 }
-main {
-    @extend %flex-center;
-    justify-content: center;
-}
-section {
-    height: 100vh;
-}
+
 /* 頁首區 */
 .topbar {
+    z-index: 99;
     position: fixed;
     @extend %flex-center;
-    justify-content: space-between;
     padding: map-get($interval , btn-xy);
 }
-.logo{
+
+.logo {
     height: 100%;
+    margin-right: 50px;
 }
+
 .menu {
     @extend %flex-center;
+
     a {
         color: $light;
         margin: map-get($interval , menu);
     }
 }
-/* banner */
-#banner {
-    width: $main-w;
+
+main {
     @extend %flex-center;
     justify-content: center;
+    flex-direction: column;
+
+    section {
+        width: 100%;
+        height: 100vh;
+        @extend %flex-center;
+        flex-direction: column;
+        justify-content: center;
+
+        .title {
+            font-size: map-get($font-size , xl);
+            font-weight: map-get($font-weight , bold);
+        }
+
+        .btn-main {
+            @extend %btn-main;
+            font-size: map-get($font-size , s);
+        }
+        .btn-s {
+            @extend %btn-main;
+            font-size: map-get($font-size , xs);
+        }
+        .list-box {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            height: 60vh;
+            max-width: 1680px;
+
+            .item {
+                position: relative;
+                flex: 1;
+                margin: 10vh 5% 3vh;
+                padding: 20px;
+                border-radius: $radius-card;
+                background-image:
+                    repeating-linear-gradient(-45deg, $deep, $deep 6px, $deep-grey 0, $deep-grey 12px);
+                transition: $base-speed;
+            }
+        }
+
+        .content {
+            position: relative;
+
+            h1 {
+                font-size: map-get($font-size , m);
+                font-weight: map-get($font-weight , bold);
+            }
+
+            p {
+                font-size: map-get($font-size , xs);
+            }
+        }
+    }
+}
+
+/* banner */
+#banner {
+    // width: $main-w;
+    flex-direction: row;
+    overflow: hidden;
+    background-image: url(../images/bg-pattern-logos.png),
+        linear-gradient(165deg, $primary-color 15%, $secondary-color 75%);
+    background-size: 100%;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: $primary-color;
+        width: 100%;
+        height: 15vh;
+        clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
     div {
         flex: 1;
     }
+
     .content {
+        padding: 0 10%;
+
         h1 {
             font-size: map-get($font-size , xxl);
             font-weight: map-get($font-weight , bolder);
             line-height: 0.8;
+
             span {
                 font-size: map-get($font-size , l);
                 font-weight: map-get($font-weight , bold);
             }
         }
+
         p {
             font-size: map-get($font-size , m);
         }
-        a {
-            @extend %btn-main;
-            font-size: map-get($font-size , s);
-        }
     }
+
     .photo {
         position: relative;
         height: 100%;
@@ -68,16 +143,140 @@ section {
             position: absolute;
         }
 
-        .mario1{
+        // banner1= 3.6s
+        .mario1 {
+            width: 65%;
+            @include animation (mario1, 0s);
+        }
+
+        .luigi {
+            width: 60%;
+            @include animation (luigi, 0.35s);
+        }
+
+        .brick {
+            width: 90%;
+            @include animation (brick, 0.5s);
+        }
+
+        // banner2 = 3.6s
+        .mario2 {
+            width: 85%;
+            @include animation (mario2, 4s);
+        }
+
+        .peach {
             width: 55%;
-            @include animation( mario1, 0 )
+            @include animation (peach, 4.35s);
         }
-        .luigi{
+
+        .pipe {
             width: 50%;
+            @include animation (pipe, 4.5s);
         }
-        .brick{
-            height: 75%;
+
+        // banner2 = 3.6s
+        .mario3 {
+            width: 85%;
+            @include animation (mario3, 8s);
+        }
+
+        .toad {
+            width: 45%;
+            @include animation (toad, 8.35s);
+        }
+
+        .star {
+            width: 65%;
+            @include animation (star, 8.5s);
         }
     }
 }
 
+/* news */
+#news {
+    .item {
+        &:hover {
+            .scenes {
+                transform: perspective(550px) rotateX(30deg) skewX(-20deg);
+            }
+
+            .role {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .item-1,
+    .item-2 {
+        p {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            @extend %multi-line;
+            -webkit-line-clamp: 3;
+            transition: $base-speed;
+        }
+
+        &:hover {
+            .content {
+                padding-bottom: 6rem;
+                transition: $base-speed;
+
+                p {
+                    opacity: 1;
+                    transform: translateY(5rem);
+                }
+            }
+        }
+    }
+
+    .photo {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        .scenes {
+            transition: $base-speed;
+            transform-origin: bottom;
+        }
+
+        .role {
+            transition: $base-speed;
+            transform-origin: bottom;
+            width: 80%;
+            position: absolute;
+        }
+    }
+
+    a {
+        @extend %btn-main;
+        font-size: map-get($font-size , s);
+    }
+}
+
+#switch {
+    background-image: url(../images/wavy-line.png), url(../images/bg-pattern-logos.png),
+        linear-gradient(-15deg, $secondary-color2 15%, $secondary-color3 75%);
+    background-origin: border-box, padding-box;
+    /*預設為padding-box，若有border則不會顯示在border範圍*/
+    // border: 20px solid transparent;
+    background-repeat: no-repeat;
+
+    .list-box>* {
+        transform-style: preserve-3d;
+    }
+
+    .role {
+        transform: translateZ(50px);
+
+        img {
+            transform: translateZ(50px);
+        }
+    }
+
+    .content {
+        transform: translateZ(50px);
+    }
+}
